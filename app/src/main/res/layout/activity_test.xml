@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:elevation="0dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior">
+
+        <ViewStub
+            android:id="@+id/test_view_stub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout="@layout/nn_view_stub_test"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:minHeight="1dp"
+            android:background="@android:color/holo_red_dark" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_scrollFlags="scroll"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/test_view"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_scrollFlags="scroll"
+            android:text="测试twitter登录"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@android:color/holo_blue_bright" />
+
+        <com.twitter.sdk.android.core.identity.TwitterLoginButton
+            android:id="@+id/buttonTwitterLogin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70000dp"
+            app:layout_scrollFlags="scroll"
+            android:background="@android:color/black" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

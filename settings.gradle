@@ -1,0 +1,54 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://maven.fabric.io/public/' }
+
+        google()
+        mavenCentral()
+
+        maven { url 'https://jitpack.io' }
+        gradlePluginPortal()
+        maven { url 'https://developer.huawei.com/repo/' }
+        maven {
+            //url "http://192.168.16.6:8081/repository/maven-releases/"
+            //url "http://localhost:8081/repository/maven-releases/"
+            url "http://ali-hk-jenkins1.livenono.com:8081/repository/maven-releases/"
+            allowInsecureProtocol = true
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "http://ali-hk-jenkins1.livenono.com:8081/repository/maven-snapshots/"
+        }
+        // 下载 gradle 插件用
+        maven { url "https://mirrors.tencent.com/nexus/repository/gradle-plugins/" }
+        // 代理了 mavenCentral 和 google 等常用仓库
+        maven { url "https://mirrors.tencent.com/nexus/repository/maven-public" }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url 'https://maven.fabric.io/public/' }
+
+        google()
+        mavenCentral()
+
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://developer.huawei.com/repo/' }
+        maven {
+            //url "http://192.168.16.6:8081/repository/maven-releases/"
+            //url "http://localhost:8081/repository/maven-releases/"
+            url "http://ali-hk-jenkins1.livenono.com:8081/repository/maven-releases/"
+            allowInsecureProtocol = true
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "http://ali-hk-jenkins1.livenono.com:8081/repository/maven-snapshots/"
+        }
+        // 下载 gradle 插件用
+        maven { url "https://mirrors.tencent.com/nexus/repository/gradle-plugins/" }
+        // 代理了 mavenCentral 和 google 等常用仓库
+        maven { url "https://mirrors.tencent.com/nexus/repository/maven-public" }
+    }
+}
+rootProject.name = "My Application"
+include ':app'
