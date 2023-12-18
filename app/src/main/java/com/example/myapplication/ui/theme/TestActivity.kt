@@ -24,7 +24,6 @@ import com.twitter.sdk.android.core.identity.TwitterLoginButton
 
 class TestActivity : AppCompatActivity() {
     lateinit var loginButton: TwitterLoginButton
-    lateinit var twitterAuthClient: TwitterAuthClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,14 +32,9 @@ class TestActivity : AppCompatActivity() {
         val config = TwitterAuthConfig("x8QrFZfAxvs88Roa8GcSbXlVg", "rwRZXwlPNWRtraSMsBcAvq20WhrDhX1gcTvkkKoHZUm7hnl7Xo")
         val config2 = TwitterConfig.Builder(this).twitterAuthConfig(config).build()
         Twitter.initialize(config2)
-        val client = TwitterAuthClient()
         //RTFuWXE5RGFiMXB2UTlvUmtzZmY6MTpjaQ
-        AGConnectApi.getInstance().options.setOption("/twitter/client_id", "RTFuWXE5RGFiMXB2UTlvUmtzZmY6MTpjaQ")
-        AGConnectApi.getInstance().options.setOption("/twitter/redirect_url", "twittersdk://mildom.com/test")
-
-        val child = TestChild()
-        val viewStub: ViewStub? = findViewById(R.id.test_view_stub)
-        child.onCreate(viewStub)
+//        AGConnectApi.getInstance().options.setOption("/twitter/client_id", "RTFuWXE5RGFiMXB2UTlvUmtzZmY6MTpjaQ")
+//        AGConnectApi.getInstance().options.setOption("/twitter/redirect_url", "twittersdk://mildom.com/test")
 
         loginButton = findViewById<TwitterLoginButton>(R.id.buttonTwitterLogin)
 
@@ -67,21 +61,5 @@ class TestActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         loginButton.onActivityResult(requestCode, resultCode, data)
-    }
-}
-
-open class Parent {
-    open fun onCreate(view: View) {
-        Log.e("xxx", "onCreate")
-    }
-
-    open fun onCreate(viewStub: ViewStub) {
-        Log.e("xxx", "onCreateViewStub")
-    }
-}
-
-class Child : Parent() {
-    override fun onCreate(viewStub: ViewStub) {
-        super.onCreate(viewStub)
     }
 }
