@@ -31,6 +31,11 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
+        huaweiAuth()
+    }
+
+    //统一登录接入
+    private fun huaweiAuth() {
         val agConnectOptionsBuilder = AGConnectOptionsBuilder()
         AGConnectInstance.initialize(this, agConnectOptionsBuilder)
         AGConnectApi.getInstance().options.setOption("/twitter/client_id", "RTFuWXE5RGFiMXB2UTlvUmtzZmY6MTpjaQ")
@@ -54,29 +59,6 @@ class TestActivity : AppCompatActivity() {
                     Log.e("xxx", "sign in fail")
                 }
         }
-
-        //RTFuWXE5RGFiMXB2UTlvUmtzZmY6MTpjaQ
-
-//        loginButton = findViewById<TwitterLoginButton>(R.id.buttonTwitterLogin)
-//
-//            loginButton.callback = object : Callback<TwitterSession>() {
-//                override fun success(p0: Result<TwitterSession>?) {
-//                    Log.e("xxx", "token=${p0?.data?.authToken}, secret=${p0?.data?.authToken?.secret}")
-//                    val credential = TwitterAuthProvider.credentialWithToken(p0?.data?.authToken?.token, p0?.data?.authToken?.secret)
-//                    AGConnectAuth.getInstance().signIn(credential).addOnSuccessListener {
-//                        // onSuccess
-//                        val user = it.user
-//                        Log.e("xxx", user.toString())
-//                    }.addOnFailureListener {
-//                        // onFail
-//                        Log.e("xxx", it.message ?:"")
-//                    }
-//                }
-//
-//                override fun failure(p0: TwitterException?) {
-//                    Log.e("xxx", p0?.message?:"")
-//                }
-//            }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
